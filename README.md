@@ -1,4 +1,4 @@
-# 雨课堂题库导出工具
+﻿# 雨课堂题库导出工具
 
 一个用于**导出自己已选课程的练习题内容**的本地工具。
 
@@ -53,7 +53,7 @@ cd yuketang-export
 document.cookie
 ```
 
-复制输出的整串内容（形如 `uv_id=2706; csrftoken=xxx; ...`），稍后填入配置。
+复制输出的整串内容（形如 `uv_id=1001; csrftoken=xxx; ...`），稍后填入配置。
 
 > 💡 **提示**：不要让 Cookie 泄露给任何人，它等同于你的登录凭证。
 
@@ -77,7 +77,7 @@ fetch('/api/v3/user/basic-info', {credentials:'include'})
 找到类似这样的请求：
 
 ```
-https://www.yuketang.cn/mooc-api/v1/lms/exercise/get_exercise_list/8290921/17232826/?classroom_id=33780243
+https://www.yuketang.cn/mooc-api/v1/lms/exercise/get_exercise_list/24681357/13572468/?classroom_id=12345678
                                                                               ↑       ↑         ↑
                                                                         exercise_id sku_id  classroom_id
 ```
@@ -89,7 +89,7 @@ https://www.yuketang.cn/mooc-api/v1/lms/exercise/get_exercise_list/8290921/17232
 在 Network 中筛选 `leaf_info`，找到请求：
 
 ```
-https://www.yuketang.cn/mooc-api/v1/lms/learn/leaf_info/33780243/92628947/
+https://www.yuketang.cn/mooc-api/v1/lms/learn/leaf_info/12345678/87654321/
                                                                 ↑ leaf_id
 ```
 
@@ -100,16 +100,16 @@ https://www.yuketang.cn/mooc-api/v1/lms/learn/leaf_info/33780243/92628947/
 ```python
 CFG = {
     "base_url":     "https://www.yuketang.cn",
-    "classroom_id": 33780243,    # 换成你的
-    "uv_id":        2706,        # 学校 ID，从 URL 或 Cookie 获取
+    "classroom_id": 12345678,    # 换成你的
+    "uv_id":        1001,        # 学校 ID，从 URL 或 Cookie 获取
     "platform_id":  3,
-    "exercise_id":  8290921,     # 换成你的
-    "sku_id":       17232826,    # 换成你的
-    "leaf_id":      92628947,    # 换成你的
+    "exercise_id":  24681357,     # 换成你的
+    "sku_id":       13572468,    # 换成你的
+    "leaf_id":      87654321,    # 换成你的
 }
 
 # 把第三步复制的 Cookie 粘贴到这里
-COOKIE = "uv_id=2706; csrftoken=你的token; ..."
+COOKIE = "uv_id=1001; csrftoken=你的token; ..."
 ```
 
 ### 第六步：运行
@@ -254,3 +254,4 @@ yuketang-export/
 如发现 Bug 或有改进建议，欢迎提交 Issue。
 
 **再次提醒：请遵守法律法规、平台服务条款与学术诚信规范。技术本身中立，使用者的行为由其自行负责。**
+
