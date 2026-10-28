@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+
+# 运行产物（含个人信息/题库内容，切勿提交）
+output/
+fonts/
+*.ttf
+*.ttc
+answers.json
+
+# Cookie / 凭证
+cookie*.txt
+cookies.txt
+.env
+*.cookie
+config.local.py
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
